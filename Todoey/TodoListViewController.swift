@@ -10,7 +10,7 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
-    let itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon" ]
+    var itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon" ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,26 +55,50 @@ class TodoListViewController: UITableViewController {
 
 
 
+    /*
+     Add Button "+" Pressed
+    */
+
     //MARK - Add New Items
     
     @IBAction func addButtonPressed(_ sender: Any) {
+
+        var textField = UITextField()
 
 
         // when Press "+" button pop up Alert Screen
         let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
 
-        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
 
-            // when Press "Add Item" in alert pop, print "Success!"
-            print("Success!")
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            // what will happen once user clikcs the Add Itme button on our UIAlert
+
+            self.itemArray.append(textField.text! ?? "New Item")
+
+
+            // after input text in alertView, reroad table view
+            // reloadData()がないと、入力がtableViewに反映されない
+            self.tableView.reloadData()
+
     }
 
+        // when write text to alert, (after closure),
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+
+            textField = alertTextField
+            print(alertTextField.text)
+            print("now")
+        }
         alert.addAction(action)
 
         present(alert, animated: true, completion: nil)
-
-    
     }
+
+    /*
+      End Add Button "+" Pressed
+     */
+
 
 
 }
