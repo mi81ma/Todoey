@@ -43,7 +43,17 @@ class TodoListViewController: UITableViewController {
         // when choose cell, flash the hit cell
         tableView.deselectRow(at: indexPath, animated: true)
 
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//        // Initially add checke mark on cell
+//        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+
+
+        // if check mark is set up, delete check mark
+        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
+
 
     }
 
