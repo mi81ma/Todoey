@@ -10,7 +10,7 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
-    var itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon" ]
+    var itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
 
 
     // UserDefaults is database in iOS
@@ -27,14 +27,20 @@ class TodoListViewController: UITableViewController {
 
     // tableView numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(itemArray.count)
         return itemArray.count
+
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        // Set ReUsable Cell 
-        let cell = tableView.dequeueReusableCell(withIdentifier: " ToDoItemCell", for: indexPath)
+// Set ReUsable Cell
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "ToDoItemCell")
+
+//        let cell = tableView.dequeueReusableCell(withIdentifier: " ToDoItemCell", for: indexPath)
+
+
         cell.textLabel?.text = itemArray[indexPath.row]
 
         return cell
