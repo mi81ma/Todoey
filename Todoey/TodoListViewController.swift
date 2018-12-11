@@ -19,6 +19,10 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
+            itemArray = items
+        }
     }
 
     // tableView numberOfRowsInSection
@@ -80,6 +84,7 @@ class TodoListViewController: UITableViewController {
             self.itemArray.append(textField.text!)
 
 
+            // UserDefaulsへの書き込み
             // self is needed because of inside closure
             self.defaults.set(self.itemArray, forKey: "TodoListArray")
 
