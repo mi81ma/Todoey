@@ -12,6 +12,10 @@ class TodoListViewController: UITableViewController {
 
     var itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon" ]
 
+
+    // UserDefaults is database in iOS
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -73,7 +77,12 @@ class TodoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // what will happen once user clikcs the Add Itme button on our UIAlert
 
-            self.itemArray.append(textField.text! ?? "New Item")
+            self.itemArray.append(textField.text!)
+
+
+            // self is needed because of inside closure
+            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+
 
 
             // after input text in alertView, reroad table view
