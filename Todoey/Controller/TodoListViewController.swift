@@ -11,13 +11,15 @@ import UIKit
 class TodoListViewController: UITableViewController {
 
     var itemArray = [Item]()
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 
 
-    // UserDefaults is database in iOS
-    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+        print(dataFilePath)
 
         let newItem = Item()
         newItem.title = "Find Mike"
@@ -36,9 +38,9 @@ class TodoListViewController: UITableViewController {
 
         // Do any additional setup after loading the view, typically from a nib.
 
-        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
-            itemArray = items
-        }
+//        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
+//            itemArray = items
+//        }
 
         
 
@@ -88,9 +90,7 @@ class TodoListViewController: UITableViewController {
         // Checkmark is written into oposit True or False
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
 
-
-
-        tableView.reloadData()
+        saveItems()
 
 
         // when choose cell, flash the hit cell
@@ -131,16 +131,7 @@ class TodoListViewController: UITableViewController {
 
             self.itemArray.append(newItem)
 
-
-            // UserDefaulsへの書き込み
-            // self is needed because of inside closure
-            self.defaults.set(self.itemArray, forKey: "TodoListArray")
-
-
-
-            // after input text in alertView, reroad table view
-            // reloadData()がないと、入力がtableViewに反映されない
-            self.tableView.reloadData()
+            self.saveItems()
 
     }
 
@@ -161,6 +152,20 @@ class TodoListViewController: UITableViewController {
       End Add Button "+" Pressed
      */
 
+
+    //MARK - Model Manupulation Methods
+    func saveItems() {
+        let encoder = PropertyListEncoder()
+
+        do {
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding array, \(error)")
+        }
+
+        self.tableView.reloadData()
+    }
 
 
 }
