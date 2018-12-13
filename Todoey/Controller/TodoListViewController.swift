@@ -27,7 +27,7 @@ class TodoListViewController: UITableViewController {
 
     // tableView numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(itemArray.count)
+
         return itemArray.count
 
     }
@@ -36,9 +36,9 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 // Set ReUsable Cell
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ToDoItemCell")
+//        let cell = UITableViewCell(style: .default, reuseIdentifier: "ToDoItemCell")
 
-//        let cell = tableView.dequeueReusableCell(withIdentifier: " ToDoItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: " ToDoItemCell", for: indexPath)
 
 
         cell.textLabel?.text = itemArray[indexPath.row]
