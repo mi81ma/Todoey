@@ -66,15 +66,11 @@ class TodoListViewController: UITableViewController {
     // when selected row, print the row number
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
-//        print(itemArray[indexPath.row])
 
 
-        // Checkmark is written into oposit True or False
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
 
         saveItems()
-
 
         // when choose cell, flash the hit cell
         tableView.deselectRow(at: indexPath, animated: true)
