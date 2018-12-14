@@ -14,6 +14,8 @@ class CategoryViewController: UITableViewController {
 
     var categories = [Category]()
 
+   
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
@@ -38,6 +40,22 @@ class CategoryViewController: UITableViewController {
         cell.textLabel?.text = categories[indexPath.row].name
 
         return cell
+    }
+
+
+     //MARK: - Add New Categories
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToItems", sender: self)
+        
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! TodoListViewController
+
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categories[indexPath.row]
+        }
+
     }
 
 
@@ -70,7 +88,7 @@ class CategoryViewController: UITableViewController {
     }
 
 
-    //MARK: - Add New Categories
+
 
     
 
