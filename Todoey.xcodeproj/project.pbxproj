@@ -14,6 +14,7 @@
 		69D2080F20FD952A0004410A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D2080E20FD952A0004410A /* Assets.xcassets */; };
 		69D2081220FD952A0004410A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D2081020FD952A0004410A /* LaunchScreen.storyboard */; };
 		69E1100921C3640C00EA4005 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1100821C3640C00EA4005 /* CategoryViewController.swift */; };
+		69F0883121C3A0C800FEF642 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F0883021C3A0C800FEF642 /* Data.swift */; };
 		77169B8938532BA2B579E9E1 /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C14090FC6788CFED0B1589 /* Pods_Todoey.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		69D2081120FD952A0004410A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69D2081320FD952A0004410A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1100821C3640C00EA4005 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		69F0883021C3A0C800FEF642 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8E5D31A16E23AD6E954A57E2 /* Pods-Todoey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todoey/Pods-Todoey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				698B3E9D21C2349E00939DE9 /* DataModel.xcdatamodeld */,
+				69F0883021C3A0C800FEF642 /* Data.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E1100921C3640C00EA4005 /* CategoryViewController.swift in Sources */,
+				69F0883121C3A0C800FEF642 /* Data.swift in Sources */,
 				69D2080A20FD95290004410A /* TodoListViewController.swift in Sources */,
 				698B3E9F21C2349E00939DE9 /* DataModel.xcdatamodeld in Sources */,
 				69D2080820FD95290004410A /* AppDelegate.swift in Sources */,
